@@ -1,26 +1,32 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "experimentalDecorators": true,
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "esnext",
+        "jsx": "react",
+        "moduleResolution": "node",
+        "noResolve": false,
+        "esModuleInterop": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "baseUrl": "./src",
         "lib": [
             "dom",
-            "dom.iterable",
-            "esnext"
+            "es2015",
+            "es2017"
         ],
-        "allowJs": true,
-        "noImplicitAny": false,
-        "skipLibCheck": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noEmit": true,
-        "jsx": "preserve"
+        "paths": {
+            "*": [
+                "types/*",
+                "*"
+            ]
+        },
+        "jsxImportSource": "@emotion/react"
     },
     "include": [
-        "src"
+        "./src/**/*"
     ]
 }

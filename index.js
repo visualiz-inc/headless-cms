@@ -1,5 +1,5 @@
 const env = require("dotenv");
-const { createMacchaApiServer } = require("maccha.server");
+const { createMacchaApiServer } = require("maccha-server");
 const { join } = require("path");
 const webpack = require("webpack");
 

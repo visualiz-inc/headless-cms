@@ -3,37 +3,27 @@ import "regenerator-runtime/runtime";
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MacchaManager } from "maccha.manager";
-// import "maccha-manager/css/style.css";
+import { MacchaManager } from "maccha-client/src/Apps";
 
-const R = React.lazy(() => MacchaManager({
-    host: "/",
-    plugins: [
-    ]
-}).then(r => ({ default: r })));
+import { register } from "./serviceworker";
+import { LocationProvider, createHistory } from "@reach/router";
+register({
+    onUpdate: () => window.location.reload()
+});
+
+const history = createHistory(window as any);
 
 ReactDOM.render(
-    <App />,
+    <>
+        <LocationProvider history={history} >
+            <MacchaManager
+                option={{
+                    apiServerHost: "http://localhost:8081",
+                    pathPrefix: "",
+                    logo: () => <></>
+                }}
+            />
+        </LocationProvider>
+    </>,
     document.getElementById("app")
 );
-
-function App() {
-    return (
-        <React.Suspense
-            fallback={<div></div>}
-        >
-            <R />
-        </React.Suspense>
-    );
-}
-
-// ReactDOM.render(
-//     <A />,
-//     document.getElementById("app")
-// );
-
-// function A() {
-//     return <div>eeeeeeee</div>
-// }
-
-// console.log(React)

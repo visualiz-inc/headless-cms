@@ -23,7 +23,12 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          git clone https://github.com/rempei-okada/maccha.git 
           npm install
+          cd .\node_modules\maccha-server\
+          npm install
+          npm run build
+          cd ../../
           npm run build --if-present
           npm run test --if-present
       
