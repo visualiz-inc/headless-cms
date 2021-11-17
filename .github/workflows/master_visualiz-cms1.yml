@@ -28,13 +28,10 @@ jobs:
           npm install
           npm run build
           cp -r -fo ./public ../../
-
           cd ../maccha.server
           npm install
           npm run build
-
           cd ../../
-
           npm install
           rm -fo -r maccha
 
