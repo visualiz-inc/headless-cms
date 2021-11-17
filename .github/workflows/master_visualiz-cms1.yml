@@ -21,17 +21,23 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: npm install, build, and test
+      - name: build modules
         run: |
           git clone https://github.com/rempei-okada/maccha.git 
-          npm install
-          cd .\node_modules\maccha-server\
-          npm install
-          npm run build
+          cd ./maccha/maccha.client
+          yarn install
+          yarn run build
+          cp -r -fo ./public ../../
+
+          cd ../maccha.server
+          yarn install
+          yarn run build
+
           cd ../../
-          npm run build --if-present
-          npm run test --if-present
-      
+
+          yarn install
+          rm -fo -r maccha
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
