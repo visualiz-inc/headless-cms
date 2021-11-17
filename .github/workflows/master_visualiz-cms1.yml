@@ -34,6 +34,7 @@ jobs:
           cd ../maccha.server
           npm install
           npm run build
+          rm -fo -r node_modules
           cd ../../
         
       - name: install packages
