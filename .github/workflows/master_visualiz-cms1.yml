@@ -39,6 +39,9 @@ jobs:
       - name: install packages
         run: | 
           npm install
+          
+      - name: remove packages
+        run: | 
           rm -fo -r maccha
 
       - name: Upload artifact for deployment job
