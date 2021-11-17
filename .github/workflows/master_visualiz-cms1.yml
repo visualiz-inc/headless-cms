@@ -42,7 +42,9 @@ jobs:
           
       - name: remove packages
         run: | 
-          rm -fo -r maccha
+          rm -fo -r ./maccha.sdk
+          rm -fo -r ./maccha.client
+          rm -fo -r ./maccha.server/node_modules
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
