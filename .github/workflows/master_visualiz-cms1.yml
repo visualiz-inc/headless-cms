@@ -44,12 +44,17 @@ jobs:
         run: | 
           rm -fo -r ./maccha/maccha.sdk
           rm -fo -r ./maccha/maccha.client
+  
+      - uses: papeloto/action-zip@v1
+        with:
+          files: "."
+          dest: webapp.zip
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: webapp.zip
 
   deploy:
     runs-on: ubuntu-latest
