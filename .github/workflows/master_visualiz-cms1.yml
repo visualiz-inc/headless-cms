@@ -21,9 +21,12 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: build modules
+      - name: pull repository
         run: |
           git clone https://github.com/rempei-okada/maccha.git 
+      
+      - name: build modules
+        run: |
           cd ./maccha/maccha.client
           npm install
           npm run build
@@ -32,6 +35,9 @@ jobs:
           npm install
           npm run build
           cd ../../
+        
+      - name: install packages
+        run: | 
           npm install
           rm -fo -r maccha
 
