@@ -24,9 +24,6 @@ jobs:
       - name: pull repository
         run: |
           git clone https://github.com/rempei-okada/maccha.git
-
-      - name: build modules
-        run: |
           cd ./maccha/maccha.client
           yarn install
           yarn run build
@@ -34,26 +31,12 @@ jobs:
           cd ../maccha.server
           yarn install
           yarn run build
-          rm -rf node_modules
+          rm -rf ./node_modules
           cd ../../
-
-      - name: install packages
-        run: |
           yarn install
-
-      - name: remove packages
-        run: |
-          rm -rf ./maccha/maccha.sdk
-          rm -rf ./maccha/maccha.client
-
-      - name: zip packages
-        run: zip -qq -r ./app/pack.zip ./
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: node-app
-          path: app
+          rm -rf ./maccha
+          mkdir app
+          zip -qq -r ./app/pack.zip ./
 
   deploy:
     runs-on: ubuntu-latest
@@ -70,7 +53,7 @@ jobs:
 
       - name: unzip packages
         run: |
-           unzip -qq ./app/pack.zip -d .
+          unzip -qq ./app/pack.zip -d .
 
       - name: "Deploy to Azure Web App"
         uses: azure/webapps-deploy@v2
