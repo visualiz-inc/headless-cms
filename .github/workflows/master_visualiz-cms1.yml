@@ -59,7 +59,7 @@ jobs:
 
       - name: unzip packages
         run: |
-          unzip -qq ./app/pack.zip -d .
+          unzip -qq ./pack.zip -d .
 
       - name: "Deploy to Azure Web App"
         uses: azure/webapps-deploy@v2
