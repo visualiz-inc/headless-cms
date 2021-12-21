@@ -20,6 +20,7 @@ async function bootstrap() {
             logging: false,
             logger: process.env.LOGGER_TYPE
         },
+        mailConnectionString: process.env.MAIL_CONNECTION_STRING,
         pulugins: [
 
         ]
