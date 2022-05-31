@@ -23,16 +23,16 @@ jobs:
 
       - name: pull repository
         run: |
-          git clone https://github.com/rempei-okada/maccha.git
-          cd ./maccha/maccha.client
+          git clone https://github.com/le-nn/maccha.git
+          cd ./maccha/src/maccha.client
           yarn install
           yarn run build
-          cp -rf ./public ../../
+          cp -rf ./public ../../../
           cd ../maccha.server
           yarn install
           yarn run build
           rm -rf ./node_modules
-          cd ../../
+          cd ../../../
           yarn install
           rm -rf ./maccha
           mkdir app
