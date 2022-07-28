@@ -33,6 +33,7 @@ jobs:
           yarn run build
           rm -rf ./node_modules
           cd ../../../
+          yarn install
           rm -rf ./maccha
           mkdir app
           zip -qq -r ./app/pack.zip ./
