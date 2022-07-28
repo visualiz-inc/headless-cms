@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "dotenv": "^8.2.0",
-        "maccha-server": "./maccha/maccha.server",
+        "maccha-server": "./maccha/src/maccha.server",
         "mysql": "^2.18.1"
     },
     "devDependencies": {
